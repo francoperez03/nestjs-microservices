@@ -1,15 +1,15 @@
 import { Controller, Logger, Post, Body, OnModuleInit, Get } from '@nestjs/common';
-import { StompJsService } from './stompjs/stompjs.service';
+import { StompJsGateway } from './stompjs/stompjs.gateaway';
 
 @Controller()
 export class AppController {
   private logger = new Logger('AppController');
   
-  constructor(private readonly stompService: StompJsService) {}
+  constructor(private readonly stompGateway: StompJsGateway) {}
   
   @Post('add')
-  async sendMessage(@Body() data: string)  {
+  sendMessage(@Body() data: string): string {
     this.logger.log('Enviando mensaje por Stomp ' + data);
-    return this.stompService.send(data);
+    return this.stompGateway.send(data);
   }
 }

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { StompJsService } from './stompjs.service'
+import { StompJsGateway } from './stompjs.gateaway'
 
 @Module({
-    providers: [StompJsService],
-    exports: [StompJsService]
+    providers: [StompJsGateway],
+    exports: [StompJsGateway]
   })
 export class StompJsModule {}

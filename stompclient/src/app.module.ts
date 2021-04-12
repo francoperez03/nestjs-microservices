@@ -4,6 +4,7 @@ import { StompJsModule } from './stompjs/stompjs.module';
 
 @Module({
   imports: [StompJsModule],
-  controllers: [AppController]
+  controllers: [AppController],
+  exports: [StompJsModule]
 })
 export class AppModule {}
